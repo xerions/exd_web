@@ -1,0 +1,25 @@
+<a href="/<%= @application %>"><h5>&lt;- Back</h5></a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Data type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Relation</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for {id, field} <- @fields do %>
+        <tr>
+          <th scope="row"> <%= id %> </th>
+          <td><%= field[:datatype] %></td>
+          <td><%= field[:name] %></td>
+          <td><%= field[:description] %></td>
+          <td><%= field[:relation] %></td>
+          <td><%= field[:type] %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

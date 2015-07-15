@@ -1,0 +1,19 @@
+<a href="/"><h5>&lt;- Back</h5></a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for {id, model} <- @models do %>
+        <tr>
+          <th scope="row"> <%= id %> </th>
+          <td>
+            <a href="/<%= @application %>/<%= model %>" style="display:block; height:100%"> <%= model %> </a>
+          </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
