@@ -13,9 +13,9 @@
           <th scope="row"> <%= id %> </th>
           <td> <%= model %> </td>
           <td>
-            <a type="button" class="btn btn-default" href="/<%= @application %>/<%= model %>/view">Data</a>
-            <a type="button" class="btn btn-default" href="/<%= @application %>/<%= model %>">Model</a>
-            <a type="button" class="disabled btn btn-default">Edit</a>
+            <a type="button" class="btn btn-success" href="/<%= @application %>/<%= model %>/view">Data</a>
+            <a type="button" class="btn btn-info" href="/<%= @application %>/<%= model %>">Model</a>
+            <a type="button" class="disabled btn btn-primary">Edit</a>
           </td>
         </tr>
     <% end %>

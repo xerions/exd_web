@@ -5,6 +5,7 @@
       <%= for field <- @fields do %>
         <th><%= field[:name] %></th>
       <% end %>
+        <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,12 @@
           <%= for key <- @fields do %>
             <td><%= field[key[:name]] %></td>
           <% end %>
+          <td>
+            <a type="button" class="btn btn-danger" href="/<%= @application %>/<%= @model %>/delete/<%= field[:id] %>?page=<%= @page %>">
+              Delete
+            </a>
+            <a type="button" class="disabled btn btn-primary">Edit</a>
+          </td>
         </tr>
     <% end %>
   </tbody>

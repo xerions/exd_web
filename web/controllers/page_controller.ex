@@ -26,6 +26,19 @@ defmodule ExdWeb.PageController do
                                      models: format(models)
   end
 
+  def delete(conn, %{"application" => application, "model" => model, "id" => id, "page" => page}) do
+    id = id |> String.to_integer
+    api = remoter().applications(:exd_web)[application][model]
+    remoter.remote(api, "delete", %{"id" => id})
+    [%{count: count}] = remoter.remote(api, "get", %{"count" => "id"})
+    last_page = Float.ceil(count / @limit) |> trunc
+    page = case String.to_integer(page) do 
+      p when p > last_page -> last_page 
+      p -> p
+    end
+    redirect conn, to: "/" <> application <> "/" <> model <> "/view/" <> Integer.to_string(page)
+  end
+
   def data(conn, %{"application" => application, "model" => model, "page" => page}) do
     page = page |> String.to_integer
     api = remoter().applications(:exd_web)[application][model]
@@ -55,6 +68,4 @@ defmodule ExdWeb.PageController do
   defp format([name | applications], n) do
     [{n, name}] ++ format(applications, n+1)
   end
-
-  defp format_application({name, models}), do: {name, Map.size(models)}
 end
