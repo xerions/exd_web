@@ -3,6 +3,8 @@ defmodule ExdWeb.PageController do
 
   plug :action
 
+  @limit 15
+
   def index(conn, _params) do
     applications = remoter().applications(:exd_web) |> Map.keys
     render conn, "index.html", title: "Available application",
@@ -23,6 +25,26 @@ defmodule ExdWeb.PageController do
                                      application: application, 
                                      models: format(models)
   end
+
+  def data(conn, %{"application" => application, "model" => model, "page" => page}) do
+    page = page |> String.to_integer
+    api = remoter().applications(:exd_web)[application][model]
+    fields = api[:fields]
+    [%{count: count}] = remoter.remote(api, "get", %{"count" => "id"})
+    data = remoter.remote(api, "get", %{"limit" => @limit, "offset" => (page - 1) * @limit})
+    render conn, "data.html", title: application <> "/" <> model,
+                              page: page,
+                              pages: trunc(Float.ceil(count / @limit)),
+                              application: application, 
+                              model: model, 
+                              data: data,
+                              fields: fields
+  end
+
+  def data(conn, %{"application" => application, "model" => model}) do
+    redirect conn, to: "/" <> application <> "/" <> model <> "/view/1"
+  end
+
 
   defp remoter() do
     Exd.Escript.Remoter.get(Application.get_env(:exd_web, :remoter, "dist")) 

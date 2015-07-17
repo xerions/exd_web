@@ -18,6 +18,8 @@ defmodule ExdWeb.Router do
     get "/", PageController, :index
     get "/:application", PageController, :show
     get "/:application/:model", PageController, :show
+    get "/:application/:model/view", PageController, :data
+    get "/:application/:model/view/:page", PageController, :data
   end
 
   # Other scopes may use custom stacks.

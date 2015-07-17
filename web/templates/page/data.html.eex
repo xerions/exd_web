@@ -1,0 +1,47 @@
+<a href="/<%= @application %>"><h5>&lt;- Back</h5></a>
+<table class="table">
+  <thead>
+    <tr>
+      <%= for field <- @fields do %>
+        <th><%= field[:name] %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for field <- @data do %>
+        <tr>
+          <%= for key <- @fields do %>
+            <td><%= field[key[:name]] %></td>
+          <% end %>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<div class="text-center">
+  <nav>
+    <ul class="pagination">
+      <%= if @page > 1 and @pages > 1 do %>
+      <li>
+        <a href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <% end %>
+      <%= for page <- :lists.seq(1, @pages) do %>
+        <%= if page == @page do %>
+        <li class="active"><a href="<%= page %>"><%= page %></a></li>
+        <% else %>
+        <li><a href="<%= page %>"><%= page %></a></li>
+        <% end %>
+      <% end %>
+      <%= if @page < @pages do %>
+      <li>
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      <% end %>
+    </ul>
+  </nav>
+</div>
