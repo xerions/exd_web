@@ -19,6 +19,8 @@ defmodule ExdWeb.Router do
     get "/:application", PageController, :show
     get "/:application/:model", PageController, :show
     get "/:application/:model/delete/:id", PageController, :delete
+    get "/:application/:model/edit/:id", PageController, :edit
+    post "/:application/:model/edit/:id", PageController, :update
     get "/:application/:model/view", PageController, :data
     get "/:application/:model/view/:page", PageController, :data
   end

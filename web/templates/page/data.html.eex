@@ -1,4 +1,5 @@
 <a href="/<%= @application %>"><h5>&lt;- Back</h5></a>
+<a type="button" class="pull-right disabled btn btn-success" href="/<%= @application %>/<%= @model%>/new">New</a>
 <table class="table">
   <thead>
     <tr>
@@ -15,10 +16,12 @@
             <td><%= field[key[:name]] %></td>
           <% end %>
           <td>
+            <a type="button" class="btn btn-primary" href="/<%= @application %>/<%= @model %>/edit/<%= field[:id] %>?page=<%= @page %>">
+              Edit
+            </a>
             <a type="button" class="btn btn-danger" href="/<%= @application %>/<%= @model %>/delete/<%= field[:id] %>?page=<%= @page %>">
               Delete
             </a>
-            <a type="button" class="disabled btn btn-primary">Edit</a>
           </td>
         </tr>
     <% end %>

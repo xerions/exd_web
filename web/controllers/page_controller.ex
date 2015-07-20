@@ -38,6 +38,26 @@ defmodule ExdWeb.PageController do
     end
     redirect conn, to: "/" <> application <> "/" <> model <> "/view/" <> Integer.to_string(page)
   end
+  def delete(conn, params), do: delete(conn, Map.put(params, "page", "1"))
+
+  def edit(conn, %{"application" => application, "model" => model, "id" => id}) do
+    id = id |> String.to_integer
+    api = remoter().applications(:exd_web)[application][model]
+    fields = api[:fields]
+    data = remoter.remote(api, "get", %{"id" => id})
+    render conn, "edit.html", title: application <> "/" <> model <> "/" <> (id |> Integer.to_string),
+                              application: application, 
+                              id: id,
+                              model: model, 
+                              data: data,
+                              fields: fields
+  end
+
+  def update(conn, %{"application" => application, "model" => model, "id" => id, "data" => data}) do
+    api = remoter().applications(:exd_web)[application][model]
+    remoter.remote(api, "put", Map.put(data, "id", String.to_integer(id)))
+    redirect conn, to: "/" <> application <> "/" <> model <> "/view"
+  end
 
   def data(conn, %{"application" => application, "model" => model, "page" => page}) do
     page = page |> String.to_integer
