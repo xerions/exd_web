@@ -33,7 +33,7 @@ defmodule ExdWeb.PageController do
     [%{count: count}] = remoter.remote(api, "get", %{"count" => "id"})
     last_page = Float.ceil(count / @limit) |> trunc
     page = case String.to_integer(page) do 
-      p when p > last_page -> last_page 
+      p when p > last_page and last_page > 0-> last_page 
       p -> p
     end
     redirect conn, to: "/" <> application <> "/" <> model <> "/view/" <> Integer.to_string(page)
@@ -47,10 +47,25 @@ defmodule ExdWeb.PageController do
     data = remoter.remote(api, "get", %{"id" => id})
     render conn, "edit.html", title: application <> "/" <> model <> "/" <> (id |> Integer.to_string),
                               application: application, 
-                              id: id,
                               model: model, 
                               data: data,
                               fields: fields
+  end
+
+  def new(conn, %{"application" => application, "model" => model}) do
+    api = remoter().applications(:exd_web)[application][model]
+    fields = api[:fields]
+    render conn, "edit.html", title: application <> "/" <> model,
+                              application: application, 
+                              model: model, 
+                              data: %{},
+                              fields: fields
+  end
+
+  def create(conn, %{"application" => application, "model" => model, "data" => data}) do
+    api = remoter().applications(:exd_web)[application][model]
+    remoter.remote(api, "post", data)
+    redirect conn, to: "/" <> application <> "/" <> model <> "/view"
   end
 
   def update(conn, %{"application" => application, "model" => model, "id" => id, "data" => data}) do

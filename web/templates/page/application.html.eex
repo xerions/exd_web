@@ -14,7 +14,7 @@
           <td> <a href="/<%= @application %>/<%= model %>/view"><%= model %> </a></td>
           <td>
             <a type="button" class="btn btn-info" href="/<%= @application %>/<%= model %>">Model</a>
-            <a type="button" class="disabled btn btn-success" href="/<%= @application %>/<%= model %>/new">New</a>
+            <a type="button" class="btn btn-success" href="/<%= @application %>/<%= model %>/new">New</a>
           </td>
         </tr>
     <% end %>

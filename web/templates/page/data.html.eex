@@ -1,5 +1,5 @@
 <a href="/<%= @application %>"><h5>&lt;- Back</h5></a>
-<a type="button" class="pull-right disabled btn btn-success" href="/<%= @application %>/<%= @model%>/new">New</a>
+<a type="button" class="pull-right btn btn-success" href="/<%= @application %>/<%= @model%>/new">New</a>
 <table class="table">
   <thead>
     <tr>
