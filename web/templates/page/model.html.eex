@@ -1,4 +1,8 @@
-<a href="/<%= @application %>"><h5>&lt;- Back</h5></a>
+<ul class="pager">
+  <li class="previous">
+    <a href="/<%= @application %>"><span aria-hidden="true">&larr; </span>Back</a>
+  </li>
+</ul>
 <table class="table">
   <thead>
     <tr>

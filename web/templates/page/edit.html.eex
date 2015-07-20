@@ -1,4 +1,8 @@
-<a href="/<%= @application %>/<%= @model %>/view"><h5>&lt;- Back</h5></a>
+<ul class="pager">
+  <li class="previous">
+    <a href="/<%= @application %>/<%= @model %>/view"><span aria-hidden="true">&larr; </span>Back</a>
+  </li>
+</ul>
 <form class="form-horizontal" role="form" method="post">
   <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
   <%= for key <- @fields, key[:type] != :read_only do %>
