@@ -2,7 +2,7 @@
   <li><a href="/">Home</a></li>
   <li class="active"><%= @application %></li>
 </ol>
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>

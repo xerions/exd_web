@@ -3,7 +3,7 @@
   <li><a href="/<%= @application %>"><%= @application %></a></li>
   <li class="active"><%= @model %></li>
 </ol>
-<table class="table">
+<table class="responsive-table table table-striped">
   <thead>
     <tr>
       <th>#</th>
@@ -17,7 +17,7 @@
   <tbody>
     <%= for {id, field} <- @fields do %>
         <tr>
-          <th scope="row"> <%= id %> </th>
+          <th><%= id %></th>
           <td><%= field[:datatype] %></td>
           <td><%= field[:name] %></td>
           <td><%= field[:description] %></td>

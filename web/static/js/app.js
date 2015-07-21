@@ -6,6 +6,7 @@ import {Socket} from "phoenix"
 // chan.join().receive("ok", chan => {
 //   console.log("Success!")
 // })
+$('.responsive-table').cardtable();
 
 let App = {
 }

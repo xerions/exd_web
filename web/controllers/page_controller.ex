@@ -7,22 +7,19 @@ defmodule ExdWeb.PageController do
 
   def index(conn, _params) do
     applications = remoter().applications(:exd_web) |> Map.keys
-    render conn, "index.html", title: "Available application",
-                               applications: format(applications)
+    render conn, "index.html", applications: format(applications)
   end
 
   def show(conn, %{"application" => application, "model" => model}) do
     fields = remoter().applications(:exd_web)[application][model][:fields]
-    render conn, "model.html", title: application <> "/" <> model,
-                               application: application, 
+    render conn, "model.html", application: application, 
                                model: model, 
                                fields: format(fields)
   end
 
   def show(conn, %{"application" => application}) do
     models = remoter().applications(:exd_web)[application] |> Map.keys
-    render conn, "application.html", title: application,
-                                     application: application, 
+    render conn, "application.html", application: application, 
                                      models: format(models)
   end
 
@@ -45,8 +42,7 @@ defmodule ExdWeb.PageController do
     api = remoter().applications(:exd_web)[application][model]
     fields = api[:fields]
     data = remoter.remote(api, "get", %{"id" => id})
-    render conn, "edit.html", title: application <> "/" <> model <> "/" <> (id |> Integer.to_string),
-                              id: id,
+    render conn, "edit.html", id: id,
                               application: application, 
                               model: model, 
                               data: data,
@@ -56,8 +52,7 @@ defmodule ExdWeb.PageController do
   def new(conn, %{"application" => application, "model" => model}) do
     api = remoter().applications(:exd_web)[application][model]
     fields = api[:fields]
-    render conn, "edit.html", title: application <> "/" <> model,
-                              id: "new",
+    render conn, "edit.html", id: "new",
                               application: application, 
                               model: model, 
                               data: %{},
@@ -82,8 +77,7 @@ defmodule ExdWeb.PageController do
     fields = api[:fields]
     [%{count: count}] = remoter.remote(api, "get", %{"count" => "id"})
     data = remoter.remote(api, "get", %{"limit" => @limit, "offset" => (page - 1) * @limit})
-    render conn, "data.html", title: application <> "/" <> model,
-                              page: page,
+    render conn, "data.html", page: page,
                               pages: trunc(Float.ceil(count / @limit)),
                               application: application, 
                               model: model, 

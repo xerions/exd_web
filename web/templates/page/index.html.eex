@@ -1,7 +1,7 @@
 <ol class="breadcrumb">
   <li class="active">Home</li>
 </ol>
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>

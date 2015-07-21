@@ -3,17 +3,23 @@
   <li><a href="/<%= @application %>"><%= @application %></a></li>
   <li class="active"><%= @model %></li>
 </ol>
-<div class="input-group">
-  <input type="text" class="form-control" placeholder="Search for...">
-  <span class="input-group-btn">
-    <button class="btn btn-icon btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-  </span>
-  <div class="pull-right">
-    <a type="button" class="btn btn-icon btn-info" href="/<%= @application %>/<%= @model%>"><span class="glyphicon glyphicon-info-sign"></span></a>
-    <a type="button" class="btn btn-icon btn-success" href="/<%= @application %>/<%= @model%>/new"><span class="glyphicon glyphicon-plus"></span></a>
+<div class="row">
+  <div class="col-xs-10">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search...">
+      <span class="input-group-btn">
+        <button class="btn btn-icon btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+      </span>
+    </div>
+  </div>
+  <div class="col-xs-2">
+    <div class="pull-right">
+    <a type="button" class="hidden-xs btn btn btn-icon btn-info" href="/<%= @application %>/<%= @model%>"><span class="glyphicon glyphicon-info-sign"></span></a>
+    <a type="button" class="btn btn btn-icon btn-success" href="/<%= @application %>/<%= @model%>/new"><span class="glyphicon glyphicon-plus"></span></a>
+    </div>
   </div>
 </div>
-<table class="table">
+<table class="responsive-table table table-striped">
   <thead>
     <tr>
       <%= for field <- @fields do %>
@@ -29,10 +35,10 @@
             <td><%= field[key[:name]] %></td>
           <% end %>
           <td>
-            <a type="button" class="btn btn-icon btn-primary" href="/<%= @application %>/<%= @model %>/edit/<%= field[:id] %>?page=<%= @page %>">
+            <a type="button" class="btn btn btn-icon btn-primary" href="/<%= @application %>/<%= @model %>/edit/<%= field[:id] %>?page=<%= @page %>">
               <span class="glyphicon glyphicon-pencil"></span>
             </a>
-            <a type="button" class="btn btn-icon btn-danger" href="/<%= @application %>/<%= @model %>/delete/<%= field[:id] %>?page=<%= @page %>">
+            <a type="button" class="btn btn btn-icon btn-danger" href="/<%= @application %>/<%= @model %>/delete/<%= field[:id] %>?page=<%= @page %>">
               <span class="glyphicon glyphicon-trash"></span>
             </a>
           </td>
