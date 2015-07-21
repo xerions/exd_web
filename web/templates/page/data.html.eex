@@ -1,9 +1,18 @@
-<ul class="pager">
-  <li class="previous">
-    <a href="/<%= @application %>"><span aria-hidden="true">&larr; </span>Back</a>
-  </li>
-</ul>
-<a type="button" class="pull-right btn btn-success" href="/<%= @application %>/<%= @model%>/new">New</a>
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/<%= @application %>"><%= @application %></a></li>
+  <li class="active"><%= @model %></li>
+</ol>
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Search for...">
+  <span class="input-group-btn">
+    <button class="btn btn-default" type="button">Go!</button>
+  </span>
+  <div class="pull-right">
+    <a type="button" class="btn btn-info" href="/<%= @application %>/<%= @model%>">Introspection</a>
+    <a type="button" class="btn btn-success" href="/<%= @application %>/<%= @model%>/new">New</a>
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -31,7 +40,6 @@
     <% end %>
   </tbody>
 </table>
-<br>
 <div class="text-center">
   <nav>
     <ul class="pagination">

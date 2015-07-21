@@ -46,6 +46,7 @@ defmodule ExdWeb.PageController do
     fields = api[:fields]
     data = remoter.remote(api, "get", %{"id" => id})
     render conn, "edit.html", title: application <> "/" <> model <> "/" <> (id |> Integer.to_string),
+                              id: id,
                               application: application, 
                               model: model, 
                               data: data,
@@ -56,6 +57,7 @@ defmodule ExdWeb.PageController do
     api = remoter().applications(:exd_web)[application][model]
     fields = api[:fields]
     render conn, "edit.html", title: application <> "/" <> model,
+                              id: "new",
                               application: application, 
                               model: model, 
                               data: %{},

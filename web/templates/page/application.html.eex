@@ -1,8 +1,7 @@
-<ul class="pager">
-  <li class="previous">
-    <a href="/"><span aria-hidden="true">&larr; </span>Back</a>
-  </li>
-</ul>
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="active"><%= @application %></li>
+</ol>
 <table class="table">
   <thead>
     <tr>

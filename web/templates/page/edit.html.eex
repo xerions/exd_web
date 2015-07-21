@@ -1,8 +1,14 @@
-<ul class="pager">
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/<%= @application %>"><%= @application %></a></li>
+  <li><a href="/<%= @application %>/<%= @model %>/view"><%= @model %></a></li>
+  <li class="active"><%= @id %></li>
+</ol>
+<!--ul class="pager">
   <li class="previous">
     <a href="/<%= @application %>/<%= @model %>/view"><span aria-hidden="true">&larr; </span>Back</a>
   </li>
-</ul>
+</ul-->
 <form class="form-horizontal" role="form" method="post">
   <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
   <%= for key <- @fields, key[:type] != :read_only do %>
