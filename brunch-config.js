@@ -30,7 +30,9 @@ exports.config = {
   // Phoenix paths configuration
   paths: {
     // Which directories to watch
-    watched: ["web/static", "test/static"],
+    watched: ["web/static", "test/static", 
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css" ],
 
     // Where to compile files to
     public: "priv/static"
@@ -41,6 +43,11 @@ exports.config = {
     babel: {
       // Do not use ES6 compiler in vendor code
       ignore: [/^(web\/static\/vendor)/]
+    },
+    assetsmanager: {
+      copyTo: {
+        'fonts': ['node_modules/bootstrap/dist/fonts/*']
+      }
     }
   }
 };

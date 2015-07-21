@@ -16,7 +16,7 @@
           <th scope="row"> <%= id %> </th>
           <td> <a href="/<%= @application %>/<%= model %>/view"><%= model %> </a></td>
           <td>
-            <a type="button" class="btn btn-info" href="/<%= @application %>/<%= model %>">Introspection</a>
+            <a type="button" class="btn btn-icon btn-info" href="/<%= @application %>/<%= model %>"><span class="glyphicon glyphicon-info-sign"></span></a>
           </td>
         </tr>
     <% end %>

@@ -6,11 +6,11 @@
 <div class="input-group">
   <input type="text" class="form-control" placeholder="Search for...">
   <span class="input-group-btn">
-    <button class="btn btn-default" type="button">Go!</button>
+    <button class="btn btn-icon btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
   </span>
   <div class="pull-right">
-    <a type="button" class="btn btn-info" href="/<%= @application %>/<%= @model%>">Introspection</a>
-    <a type="button" class="btn btn-success" href="/<%= @application %>/<%= @model%>/new">New</a>
+    <a type="button" class="btn btn-icon btn-info" href="/<%= @application %>/<%= @model%>"><span class="glyphicon glyphicon-info-sign"></span></a>
+    <a type="button" class="btn btn-icon btn-success" href="/<%= @application %>/<%= @model%>/new"><span class="glyphicon glyphicon-plus"></span></a>
   </div>
 </div>
 <table class="table">
@@ -29,11 +29,11 @@
             <td><%= field[key[:name]] %></td>
           <% end %>
           <td>
-            <a type="button" class="btn btn-primary" href="/<%= @application %>/<%= @model %>/edit/<%= field[:id] %>?page=<%= @page %>">
-              Edit
+            <a type="button" class="btn btn-icon btn-primary" href="/<%= @application %>/<%= @model %>/edit/<%= field[:id] %>?page=<%= @page %>">
+              <span class="glyphicon glyphicon-pencil"></span>
             </a>
-            <a type="button" class="btn btn-danger" href="/<%= @application %>/<%= @model %>/delete/<%= field[:id] %>?page=<%= @page %>">
-              Delete
+            <a type="button" class="btn btn-icon btn-danger" href="/<%= @application %>/<%= @model %>/delete/<%= field[:id] %>?page=<%= @page %>">
+              <span class="glyphicon glyphicon-trash"></span>
             </a>
           </td>
         </tr>

@@ -78,3 +78,11 @@ form.link, form.button {
     border-bottom: 0;
   }
 }
+
+.btn .glyphicon {
+    margin-right: 5px;
+}
+
+.btn.btn-icon .glyphicon {
+    margin-right: 0;
+}
