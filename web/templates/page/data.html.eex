@@ -1,14 +1,23 @@
 <ol class="breadcrumb">
   <li><a href="/">Home</a></li>
   <li><a href="/<%= @application %>"><%= @application %></a></li>
-  <li class="active"><%= @model %></li>
+  <%= if @pattern == nil do %>
+    <li class="active"><%= @model %></li>
+  <% else %>
+    <li><a href="/<%= @application %>/<%= @model %>/view"><%= @model %></a></li>
+    <li class="active">search: <%= @pattern %></li>
+  <% end %>
 </ol>
 <div class="row">
   <div class="col-xs-10">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search...">
+      <%= if @pattern == nil do %>
+        <input id="pattern" type="text" class="form-control" placeholder="Search...">
+      <% else %>
+        <input id="pattern" type="text" class="form-control" placeholder="Search..." value="<%= @pattern %>">
+      <% end %>
       <span class="input-group-btn">
-        <button class="btn btn-icon btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        <button id="search" class="btn btn-icon btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
       </span>
     </div>
   </div>

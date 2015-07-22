@@ -11,7 +11,7 @@
   <tbody>
     <%= for {id, app} <- @applications do %>
         <tr>
-          <th scope="row"> <%= id %> </th>
+          <td scope="row"> <%= id %> </td>
           <td>
             <a href="/<%= app %>" style="display:block; height:100%"> <%= app %> </a>
           </td>

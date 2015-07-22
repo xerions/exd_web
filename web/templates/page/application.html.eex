@@ -13,7 +13,7 @@
   <tbody>
     <%= for {id, model} <- @models do %>
         <tr>
-          <th scope="row"> <%= id %> </th>
+          <td scope="row"> <%= id %> </td>
           <td> <a href="/<%= @application %>/<%= model %>/view"><%= model %> </a></td>
           <td>
             <a type="button" class="btn btn-icon btn-info" href="/<%= @application %>/<%= model %>"><span class="glyphicon glyphicon-info-sign"></span></a>

@@ -22,6 +22,7 @@ defmodule ExdWeb.Router do
     post "/:application/:model/new", PageController, :create
     get "/:application/:model/delete/:id", PageController, :delete
     get "/:application/:model/edit/:id", PageController, :edit
+    get "/:application/:model/search/:pattern", PageController, :search
     post "/:application/:model/edit/:id", PageController, :update
     get "/:application/:model/view", PageController, :data
     get "/:application/:model/view/:page", PageController, :data

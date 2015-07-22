@@ -1,7 +1,7 @@
 <ol class="breadcrumb">
   <li><a href="/">Home</a></li>
   <li><a href="/<%= @application %>"><%= @application %></a></li>
-  <li class="active"><%= @model %></li>
+  <li class="active">introspection: <%= @model %></li>
 </ol>
 <table class="responsive-table table table-striped">
   <thead>
@@ -17,7 +17,7 @@
   <tbody>
     <%= for {id, field} <- @fields do %>
         <tr>
-          <th><%= id %></th>
+          <td><%= id %></td>
           <td><%= field[:datatype] %></td>
           <td><%= field[:name] %></td>
           <td><%= field[:description] %></td>
