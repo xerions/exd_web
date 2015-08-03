@@ -35,7 +35,7 @@ defmodule ExdWeb.Mixfile do
      {:phoenix_html, "~> 1.0"},
      {:phoenix_live_reload, "~> 0.4", only: :dev},
      {:cowboy, "~> 1.0"},
-     {:hello, github: "travelping/hello", branch: "hello_v3"},
+     {:hello, github: "travelping/hello"},
      {:exd, github: "xerions/exd", branch: "master"}]
   end
 end

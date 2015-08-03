@@ -94,7 +94,7 @@ defmodule ExdWeb.PageController do
   def search(conn, %{"application" => application, "model" => model, "pattern" => pattern}) do
     api = remoter().applications(:exd_web)[application][model]
     fields = api[:fields]
-    data = remoter.remote(api, "get", %{"where" => "name == \"" <> pattern <> "\""})
+    data = remoter.remote(api, "get", %{"where" => "name like \"%" <> pattern <> "%\""})
     render conn, "data.html", page: 0,
                               pages: 0,
                               application: application, 
