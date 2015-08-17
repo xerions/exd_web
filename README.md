@@ -1,5 +1,7 @@
 # ExdWeb
 
+This is model viewer/editor for [exd](https://github.com/xerions/exd)
+
 To start your new Phoenix application:
 
 1. Install dependencies with `mix deps.get`
