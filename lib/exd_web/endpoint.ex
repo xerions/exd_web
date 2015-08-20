@@ -31,5 +31,5 @@ defmodule ExdWeb.Endpoint do
     key: "_exd_web_key",
     signing_salt: "sQzhWslN"
 
-  plug :router, ExdWeb.Router
+  plug ExdWeb.Router
 end
