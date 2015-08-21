@@ -30,7 +30,7 @@ exports.config = {
   // Phoenix paths configuration
   paths: {
     // Which directories to watch
-    watched: ["web/static", "test/static", 
+    watched: ["web/static", "test/static",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"],
