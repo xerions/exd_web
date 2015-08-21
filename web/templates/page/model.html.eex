@@ -3,27 +3,29 @@
   <li><a href="/<%= @application %>"><%= @application %></a></li>
   <li class="active">introspection: <%= @model %></li>
 </ol>
-<table class="responsive-table table table-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Data type</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Relation</th>
-      <th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= for {id, field} <- @fields do %>
-        <tr>
-          <td><%= id %></td>
-          <td><%= field[:datatype] %></td>
-          <td><%= field[:name] %></td>
-          <td><%= field[:description] %></td>
-          <td><%= field[:relation] %></td>
-          <td><%= field[:type] %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="responsive-table table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Data type</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Relation</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for {id, field} <- @fields do %>
+          <tr>
+            <td><%= id %></td>
+            <td><%= field[:datatype] %></td>
+            <td><%= field[:name] %></td>
+            <td><%= field[:description] %></td>
+            <td><%= field[:relation] %></td>
+            <td><%= field[:type] %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

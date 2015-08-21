@@ -12,6 +12,16 @@
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
 $('.responsive-table').cardtable();
+$('.table-responsive .trimmable').each(function() {
+    var that = $(this),
+        title = that.text(),
+        chars = title.length;
+
+    if (chars > 20) {
+        var newTitle = title.substring(0, 17) + "...";
+        that.text(newTitle);
+    }
+});
 $("#search").click(function() {
     pattern = $('#pattern').val();
     window.location = "../search/" + pattern;

@@ -28,33 +28,35 @@
     </div>
   </div>
 </div>
-<table class="responsive-table table table-striped">
-  <thead>
-    <tr>
-      <%= for field <- @fields do %>
-        <th><%= field[:name] %></th>
+<div class="table-responsive">
+  <table class="responsive-table table table-striped">
+    <thead>
+      <tr>
+        <%= for field <- @fields do %>
+          <th class="trimmable"><%= field[:name] %></th>
+        <% end %>
+          <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for field <- @data do %>
+          <tr>
+            <%= for key <- @fields do %>
+              <td class="trimmable"><%= field[key[:name]] %></td>
+            <% end %>
+            <td>
+              <a type="button" class="btn btn btn-icon btn-primary" href="/<%= @application %>/<%= @model %>/edit/<%= field[:id] %>?page=<%= @page %>">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </a>
+              <a type="button" class="btn btn btn-icon btn-danger" href="/<%= @application %>/<%= @model %>/delete/<%= field[:id] %>?page=<%= @page %>">
+                <span class="glyphicon glyphicon-trash"></span>
+              </a>
+            </td>
+          </tr>
       <% end %>
-        <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= for field <- @data do %>
-        <tr>
-          <%= for key <- @fields do %>
-            <td><%= field[key[:name]] %></td>
-          <% end %>
-          <td>
-            <a type="button" class="btn btn btn-icon btn-primary" href="/<%= @application %>/<%= @model %>/edit/<%= field[:id] %>?page=<%= @page %>">
-              <span class="glyphicon glyphicon-pencil"></span>
-            </a>
-            <a type="button" class="btn btn btn-icon btn-danger" href="/<%= @application %>/<%= @model %>/delete/<%= field[:id] %>?page=<%= @page %>">
-              <span class="glyphicon glyphicon-trash"></span>
-            </a>
-          </td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 <div class="text-center">
   <nav>
     <ul class="pagination">
