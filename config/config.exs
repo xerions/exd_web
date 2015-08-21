@@ -5,6 +5,8 @@
 # is restricted to this project.
 use Mix.Config
 
+config :phoenix,
+  serve_endpoints: true
 # Configures the endpoint
 config :exd_web, ExdWeb.Endpoint,
   url: [host: "localhost"],

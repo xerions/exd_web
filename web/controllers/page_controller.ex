@@ -1,8 +1,6 @@
 defmodule ExdWeb.PageController do
   use ExdWeb.Web, :controller
 
-  plug :action
-
   @limit 15
 
   def index(conn, _params) do
